@@ -2,76 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Context Weaver™ | Investor Command Center</title>
+  <title>Context Weaver&trade; | Investor Command Centre</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: white; }
-    header { background: #e60000; padding: 20px; text-align: center; font-size: 24px; }
-    section { padding: 20px; }
-    input, textarea, button {
-      display: block; margin: 10px 0; padding: 10px; width: 100%; max-width: 400px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #000;
+      color: white;
     }
-    .hidden { display: none; }
-    .chat-box, .admin { background: #222; padding: 15px; border-radius: 10px; margin-top: 20px; }
-    .badge { text-align: center; margin-top: 40px; }
-    .badge img { width: 180px; filter: drop-shadow(0 0 10px red); }
-    .badge p { font-size: 14px; color: gray; }
+    header {
+      background: #e60000;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+    }
+    section {
+      padding: 20px;
+    }
+    input, textarea, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+    .hidden {
+      display: none;
+    }
+    .chat-box, .admin {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    .badge {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .badge img {
+      width: 180px;
+      filter: drop-shadow(0 0 5px red);
+    }
+    .badge p {
+      font-size: 14px;
+      color: gray;
+    }
   </style>
 </head>
 <body>
 
-  <header>Context Weaver™</header>
+<header>Context Weaver&trade;</header>
 
-  <section>
-    <h2>Admin Panel (Secure)</h2>
-    <input type="password" id="adminPw" placeholder="Enter admin password">
-    <button onclick="adminLogin()">Access Panel</button>
-    <div id="adminPanel" class="hidden">
-      <p>Welcome, Michael. Use this panel to post live updates.</p>
-      <textarea rows="4" placeholder="Enter update..."></textarea>
-      <button>Post Update</button>
-    </div>
-
-    <div class="chat-box">
-      <strong>Secure Chat</strong><br>
-      <textarea id="chatMsg" placeholder="Enter your message"></textarea>
-      <input type="email" id="chatEmail" placeholder="Your email">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-  </section>
-    <div class="badge">
-  <img src="https://raw.githubusercontent.com/EnterpriseIncorporated/context-weaver-ai/main/assets/badge.png" alt="Hypersonic Quantum Security™ Badge" onerror="this.style.display='none'" />
-  <p>
-    Protected by <strong>Context Weaver&#8482;</strong><br />
-    Hypersonic Quantum Security&#8482; | Enterprise Corporated
-  </p>
-</div>
-    </p>
+<section>
+  <h2>Admin Panel (Secure)</h2>
+  <input type="password" id="adminPw" placeholder="Enter admin password">
+  <button onclick="adminLogin()">Access Panel</button>
+  <div id="adminPanel" class="hidden admin">
+    <p>Welcome, Michael. Use this panel to post updates to the network.</p>
+    <textarea rows="4" placeholder="Enter your update here..."></textarea>
+    <button>Post Update</button>
   </div>
 
-  <script>
-    function adminLogin() {
-      const pw = document.getElementById("adminPw").value;
-      if (pw === "SecureAccess2025") {
-        document.getElementById("adminPanel").classList.remove("hidden");
-        alert("Access granted.");
-      } else {
-        alert("Incorrect password");
-      }
-    }
+  <div class="chat-box">
+    <strong>Secure Chat</strong><br>
+    <textarea id="chatMsg" placeholder="Enter your message"></textarea>
+    <input type="email" id="chatEmail" placeholder="Your email">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</section>
 
-    function sendMessage() {
-      const msg = document.getElementById("chatMsg").value;
-      const email = document.getElementById("chatEmail").value;
-      if (msg && email) {
-        alert(`Message sent securely from ${email}: ${msg}`);
-        document.getElementById("chatMsg").value = '';
-        document.getElementById("chatEmail").value = '';
-      } else {
-        alert("Please fill in both fields.");
-      }
+<div class="badge">
+  <img src="https://raw.githubusercontent.com/EnterpriseIncorporated/context-weaver-ai/main/assets/badge.png" alt="Security Badge">
+  <p>
+    Protected by <strong>Context Weaver&trade;</strong><br>
+    Hypersonic Quantum Security&trade; | Enterprise Corporated
+  </p>
+</div>
+
+<script>
+  function adminLogin() {
+    const pw = document.getElementById("adminPw").value;
+    if (pw === "SecureAccess2025") {
+      document.getElementById("adminPanel").classList.remove("hidden");
+      alert("Access granted.");
+    } else {
+      alert("Incorrect password");
     }
-  </script>
+  }
+
+  function sendMessage() {
+    const msg = document.getElementById("chatMsg").value;
+    const email = document.getElementById("chatEmail").value;
+    if (msg && email) {
+      alert(`Message sent securely from ${email}`);
+      document.getElementById("chatMsg").value = "";
+      document.getElementById("chatEmail").value = "";
+    } else {
+      alert("Please fill in both fields.");
+    }
+  }
+</script>
 
 </body>
 </html>
